@@ -4,16 +4,23 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/home'
+import ProductDetail from './pages/home/ProductDetail'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="d-flex flex-column min-vh-100">
-      <Header />
-      <main className="flex-grow-1">
-        <Home />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="d-flex flex-column min-vh-100">
+        <Header />
+        <main className="flex-grow-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/productos/:id" element={<ProductDetail />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   )
 }
 
